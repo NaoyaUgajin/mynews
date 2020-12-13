@@ -29,7 +29,8 @@
                     <div class="form-group row">
                         <label class="col-md-2" for="gender">性別</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="gender" rows="20">{{ old('gender') }}</textarea>
+                            <input type="radio" name="gender" value="男です">男性
+                            <input type="radio" name="gender" value="女です">女性
                         </div>
                     </div>
                     <div class="form-group row">
