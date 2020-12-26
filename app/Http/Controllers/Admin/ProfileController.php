@@ -68,6 +68,7 @@ public function update(Request $request)
       $profiles->fill($profiles_form)->save();
       
       $history = new History;
+        $history->news_id = 0;
         $history->profiles_id = $profiles->id;
         $history->edited_at = Carbon::now();
         $history->save();
