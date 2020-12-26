@@ -18,11 +18,16 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
     Route::post('news/create', 'Admin\NewsController@create'); # 追記
+    Route::get('news', 'Admin\NewsController@index')->middleware('auth'); // 追記
+    Route::get('news/edit', 'Admin\NewsController@edit')->middleware('auth'); // 追記
+    Route::post('news/edit', 'Admin\NewsController@update')->middleware('auth'); // 追記
+    Route::get('news/delete', 'Admin\NewsController@delete')->middleware('auth');
 #以下は課題4の記載
     Route::get('profile/create', 'Admin\ProfileController@add')->middleware('auth');
     Route::post('profile/create', 'Admin\ProfileController@create');
+    Route::get('profile', 'Admin\ProfileController@index')->middleware('auth');
     Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth');
-    Route::post('profile/edit', 'Admin\ProfileController@update');
+    Route::post('profile/edit', 'Admin\ProfileController@update')->middleware('auth');
 });
 
 #課題3
